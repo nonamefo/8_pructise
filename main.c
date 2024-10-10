@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 #include <windows.h>
 #include <time.h>
+#include <string.h>
+
 
 
 struct player {
@@ -25,16 +28,33 @@ void hard(struct player user);
 void min_main();
 
 
-
 int main() {
     min_main();
     return 0;
 }
+
+
 void min_main(){
-        setlocale(LC_ALL, "ru_RU.UTF-8");
+    setlocale(LC_ALL, "ru_RU.UTF-8");
+
+    printf("#########################################################\n");
+    printf("#                                                       #\n");
+    printf("#                                                       #\n");
+    printf("#   Разработчик данного кода не несет ответсвенность    #\n");
+    printf("#   за то что случиться с вашим компом во время игры    #\n");
+    printf("#  если у вас собъються настройки или удалиться виндоус #\n");
+    printf("#             то вы сам в этом виноваты                 #\n");
+    printf("#                                                       #\n");
+    printf("#                                                       #\n");
+    printf("#                                                       #\n");
+    printf("#   P.S.разраб: приятной игры  :)                       #\n");
+    printf("#                                                       #\n");
+    printf("#                                                       #\n");
+    printf("#########################################################\n");
 
     struct player user;
     user.lvl = 1;
+
 
     printf("привет, добро пожаловать на квест\n");
     printf("выбери уровень сложности\n1 - легчайщая\n2 - средний уровень сложности\n3 - легчайщая, но для величайшего\n");
@@ -60,7 +80,7 @@ void min_main(){
     }
 
     printf("Чтож вот и подошел конец твоего путешествия\nПомни у всего есть начало и конец\nНе засиживайся перед компом сходи погулять.\nя тебе с этим помогу\n");
-    system("shutdown /s");
+    // system("shutdown /s");
 }
 
 
@@ -203,9 +223,41 @@ void midl(struct player user) {
 
 
 void hard(struct player user) {
-    if (1){
-    printf("Все еще в разработке\nМоете попробовать другой уровениь\nY - попробовать другой уровень\nN - покинуть квест");
+    if (1)
+    {
+        printf("Все еще в разработке\nМоете попробовать другой уровениь\nY - попробовать другой уровень\nN - покинуть квест");
+    } 
+    else 
+    {
+        printf("Чтож ты выброл слажный путь тут будут загадки на знание терминала посторайся выбрать все вовремя до того как команда выполниться\n");
+        printf("Загадка первая:\nкакая команда используеться для отмены команды shutdown /s\n");
+
+        // system("shutdown /s");
+
+        char word[30];
+        printf("Введите команду: ");
+
+        // Читаем строку целиком с помощью fgets
+        scanf_s("%s", word);
+
+        // Удаляем символ новой строки, если он есть
+        size_t len = strlen(word);
+        if (len > 0 && word[len - 1] == '\n') 
+        {
+            word[len - 1] = '\0';
+        }
+
+    // Проверяем команду
+        if (strcmp(word, "shutdown /a") == 0) 
+        {
+            system("shutdown /a");
+        } 
+        else
+            {
+            printf("Неверная команда.\n");
+        }
     }
+    
 }
 
 
